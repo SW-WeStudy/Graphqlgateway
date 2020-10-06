@@ -1,6 +1,6 @@
 # Graphqlgateway
 
-npm install
+npm install <br/>
 node lib/index.js
 
 Ejemplo de Querys
