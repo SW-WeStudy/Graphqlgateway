@@ -10,7 +10,10 @@ import graphQLSchema from './graphQLSchema';
 import { formatErr } from './utilities';
 
 const app = new Koa();
-const router = new KoaRouter();app.use(async (ctx, next) => {
+const PORT = process.env.PORT || 5000;
+const router = new KoaRouter();
+
+app.use(async (ctx, next) => {
 	if (ctx.header.authorization) {
 		const token = ctx.header.authorization.match(/Bearer ([A-Za-z0-9]+)/);
 		if (token && token[1]) {

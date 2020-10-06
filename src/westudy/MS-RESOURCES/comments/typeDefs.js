@@ -15,6 +15,7 @@ export const commentTypeDef = `
    type messageResult {
         res: String!
         message: String!
+        id:Int
    }
 
 `;
