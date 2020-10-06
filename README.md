@@ -5,7 +5,7 @@ node lib/index.js
 
 Ejemplo de Querys
 
-```json
+```javascript
 mutation{
     createResource(resource:{idUser:"1",idClase:1,content:"Contenido creado"}){
       res
