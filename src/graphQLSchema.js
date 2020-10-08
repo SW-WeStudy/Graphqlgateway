@@ -14,26 +14,35 @@ import{
 	resourceTypeDef,
 	resourceQueries,
 	resourceMutations
-} from './westudy/MS-RESOURCES/resources/schema'
+} from './westudy/MS-RESOURCES/resources/schema';
+
+import{
+	userTypeDef,
+	userQueries,
+	userMutations
+} from './westudy/MS-AUTH/schema'
 
 import categoryResolvers from './westudy/MS-RESOURCES/comments/resolvers';
 import resourceResolvers from './westudy/MS-RESOURCES/resources/resolver';
+import authenticationResolvers from './westudy/MS-AUTH/resolver';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		commentTypeDef,
-		resourceTypeDef
-		
+		resourceTypeDef,
+		userTypeDef
 	],
 	[
 		commentQueries,
-		resourceQueries
+		resourceQueries,
+		userQueries
 	],
 	[
 		commentMutations,
-		resourceMutations
+		resourceMutations,
+		userMutations
 	]
 );
 
@@ -43,6 +52,7 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		categoryResolvers,
-		resourceResolvers
+		resourceResolvers,
+		authenticationResolvers
 	)
 });
