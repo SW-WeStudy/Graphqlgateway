@@ -58,9 +58,16 @@ import{
 	adminTypeDef
 } from './westudy/MS-ADMIN/schemas'	
 
+import{
+	userTypeDef,
+	userQueries,
+	userMutations
+} from './westudy/MS-AUTH/schema'
+
 import categoryResolvers from './westudy/MS-RESOURCES/comments/resolvers';
 import resourceResolvers from './westudy/MS-RESOURCES/resources/resolver';
 import forumResolvers from './westudy/MS-FORUM/resolver';
+import authenticationResolvers from './westudy/MS-AUTH/resolver';
 
 import courseResolver from './westudy/MS-COURSES/resolver';
 import documentResolvers from './westudy/MS-NAVIGATION/documents/resolvers';
@@ -79,7 +86,8 @@ const mergedTypeDefs = mergeSchemas(
 		forumTypeDef,
 		studyroomTypeDef,
 		usercreatedTypeDef,
-		adminTypeDef
+		adminTypeDef,
+		userTypeDef
 	],
 	[
 		commentQueries,
@@ -91,7 +99,8 @@ const mergedTypeDefs = mergeSchemas(
 		forumQueries,
 		studyroomsQueries,
 		usercreatedQueries,
-		adminQueries
+		adminQueries,
+		userQueries
 	],
 	[
 		documentMutations,
@@ -103,7 +112,8 @@ const mergedTypeDefs = mergeSchemas(
 		forumMutations,
 		studyroomsMutations,
 		usercreatedMutations,
-		adminMutations
+		adminMutations,
+		userMutations
 	]
 );
 
@@ -119,6 +129,7 @@ export default makeExecutableSchema({
 		forumResolvers,
 		usercreatedResolvers,
 		studyroomResolvers,
-		adminResolvers
+		adminResolvers,
+		authenticationResolvers
 	)
 });
