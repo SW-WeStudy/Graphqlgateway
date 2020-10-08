@@ -14,7 +14,7 @@ import{
 	resourceTypeDef,
 	resourceQueries,
 	resourceMutations
-} from './westudy/MS-RESOURCES/resources/schema'
+} from './westudy/MS-RESOURCES/resources/schema';
 
 import {
 	documentTypeDef,
@@ -23,7 +23,6 @@ import {
 } from './westudy/MS-NAVIGATION/documents/typeDefs';
 
 
-import documentResolvers from './westudy/MS-NAVIGATION/documents/resolvers';
 import{
 	courseTypeDef,
 	courseQueries,
@@ -37,23 +36,20 @@ import{
 import categoryResolvers from './westudy/MS-RESOURCES/comments/resolvers';
 import resourceResolvers from './westudy/MS-RESOURCES/resources/resolver';
 import courseResolver from './westudy/MS-COURSES/resolver';
-
+import documentResolvers from './westudy/MS-NAVIGATION/documents/resolvers';
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		commentTypeDef,
 		resourceTypeDef,
-		documentTypeDef
-		
-		resourceTypeDef,
+		documentTypeDef,
 		courseTypeDef
 	],
 	[
 		commentQueries,
 		resourceQueries,
-		documentQueries
-		resourceQueries,
+		documentQueries,
 		courseQueries,
 		courseUserQueries,
 		noteQueries
@@ -75,8 +71,7 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		categoryResolvers,
 		resourceResolvers,
-		documentResolvers
-		resourceResolvers,
+		documentResolvers,
 		courseResolver
 	)
 });
