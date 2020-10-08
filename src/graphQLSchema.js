@@ -16,6 +16,14 @@ import{
 	resourceMutations
 } from './westudy/MS-RESOURCES/resources/schema'
 
+import {
+	documentTypeDef,
+	documentQueries,
+	documentMutations
+} from './westudy/MS-NAVIGATION/documents/typeDefs';
+
+
+import documentResolvers from './westudy/MS-NAVIGATION/documents/resolvers';
 import{
 	courseTypeDef,
 	courseQueries,
@@ -36,16 +44,22 @@ const mergedTypeDefs = mergeSchemas(
 		'scalar JSON',
 		commentTypeDef,
 		resourceTypeDef,
+		documentTypeDef
+		
+		resourceTypeDef,
 		courseTypeDef
 	],
 	[
 		commentQueries,
+		resourceQueries,
+		documentQueries
 		resourceQueries,
 		courseQueries,
 		courseUserQueries,
 		noteQueries
 	],
 	[
+		documentMutations,
 		commentMutations,
 		resourceMutations,
 		courseMutations,
@@ -60,6 +74,8 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		categoryResolvers,
+		resourceResolvers,
+		documentResolvers
 		resourceResolvers,
 		courseResolver
 	)
