@@ -1,0 +1,52 @@
+query{
+  get_study_rooms{
+    _id
+    name
+    resources{
+    _id
+    }
+    students{
+      _id
+    }
+    calendarEventId
+    ownerEmail
+    ownerName
+    description
+  }
+}
+
+query{
+  get_study_room(sr_id: "5f7df1f879db190019d27b15"){
+    name
+  }
+}
+
+  mutation{
+      create_study_room(studyroom:
+        {
+          name: "II - Reunión / Calculo Multivariado",
+          description: "Bienvenidos al maravilloso mundo del calculo",
+          date: "2020-10-07T00:46:15.794Z",
+          duration: 30,
+          ownerName: "Ana Guzman",
+          ownerEmail: "pedromosquete69@gmail.com",
+          courseId: "courseId2"
+        }){
+        name
+      }
+    }
+
+
+
+ mutation{
+      delete_student(
+        sr_id: "5f7e20cd79db190019d27b1b",
+        rmstudent: {
+          _id: "5f7e4ff479db190019d27b23"
+        }
+         
+        
+        ){
+        name
+      }
+    }

@@ -11,11 +11,21 @@ import {
 } from './westudy/MS-RESOURCES/comments/typeDefs';
 
 
+import {
+	studyroomTypeDef,
+	studyroomsQueries,
+	studyroomsMutations
+} from './westudy/MS-STUDYROOMS/studyrooms/SR_Schema';
 import{
 	resourceTypeDef,
 	resourceQueries,
 	resourceMutations
 } from './westudy/MS-RESOURCES/resources/schema';
+import{
+	usercreatedTypeDef,
+	usercreatedQueries,
+	usercreatedMutations
+} from './westudy/MS-STUDYROOMS/usercreated/UC_Schema';
 
 import{
 	forumTypeDef,
@@ -46,6 +56,8 @@ import forumResolvers from './westudy/MS-FORUM/resolver';
 
 import courseResolver from './westudy/MS-COURSES/resolver';
 import documentResolvers from './westudy/MS-NAVIGATION/documents/resolvers';
+import studyroomResolvers from './westudy/MS-STUDYROOMS/studyrooms/resolvers';
+import usercreatedResolvers from './westudy/MS-STUDYROOMS/usercreated/resolvers';
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -54,7 +66,9 @@ const mergedTypeDefs = mergeSchemas(
 		resourceTypeDef,
 		documentTypeDef,
 		courseTypeDef,
-		forumTypeDef
+		forumTypeDef,
+		studyroomTypeDef,
+		usercreatedTypeDef
 	],
 	[
 		commentQueries,
@@ -63,7 +77,9 @@ const mergedTypeDefs = mergeSchemas(
 		courseQueries,
 		courseUserQueries,
 		noteQueries,
-		forumQueries
+		forumQueries,
+		studyroomsQueries,
+		usercreatedQueries,
 	],
 	[
 		documentMutations,
@@ -72,7 +88,9 @@ const mergedTypeDefs = mergeSchemas(
 		courseMutations,
 		courseUserMutations,
 		noteMutations,
-		forumMutations
+		forumMutations,
+		studyroomsMutations,
+		usercreatedMutations
 	]
 );
 
@@ -85,6 +103,8 @@ export default makeExecutableSchema({
 		resourceResolvers,
 		documentResolvers,
 		courseResolver,
-		forumResolvers
+		forumResolvers,
+		usercreatedResolvers,
+		studyroomResolvers,
 	)
 });
