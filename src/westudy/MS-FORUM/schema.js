@@ -60,6 +60,7 @@ export const forumQueries = `
       getForumPosts(_idForum: String!): [post]
       getPostComments(_idForum: String!, _idPost: String!): [postComment]
       getCommentAnswers(_idForum: String!, _idPost: String!, _idComment: String!): [answer]
+      getPostsByUser(username: String!): [post]
   `;
 
 

@@ -17,6 +17,9 @@ const resolvers = {
         },
         getCommentAnswers: (_, { _idForum, _idPost, _idComment }) => {	
 			return generalRequest(`${URL}/forums/${_idForum}/posts/${_idPost}/comments/${_idComment}/answers`, 'GET')
+		},
+		getPostsByUser: (_, { username }) => {	
+			return generalRequest(`${URL}/posts/${username}`, 'GET')
 		}
 	},
 	Mutation: {
