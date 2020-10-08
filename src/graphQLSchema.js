@@ -66,7 +66,7 @@ const mergedTypeDefs = mergeSchemas(
 		resourceTypeDef,
 		documentTypeDef,
 		courseTypeDef,
-		forumTypeDef
+		forumTypeDef,
 		studyroomTypeDef,
 		usercreatedTypeDef
 	],
@@ -77,7 +77,7 @@ const mergedTypeDefs = mergeSchemas(
 		courseQueries,
 		courseUserQueries,
 		noteQueries,
-		forumQueries
+		forumQueries,
 		studyroomsQueries,
 		usercreatedQueries,
 	],
@@ -88,7 +88,7 @@ const mergedTypeDefs = mergeSchemas(
 		courseMutations,
 		courseUserMutations,
 		noteMutations,
-		forumMutations
+		forumMutations,
 		studyroomsMutations,
 		usercreatedMutations
 	]
@@ -103,8 +103,8 @@ export default makeExecutableSchema({
 		resourceResolvers,
 		documentResolvers,
 		courseResolver,
-		forumResolvers
-		usercreatedResolvers
+		forumResolvers,
+		usercreatedResolvers,
 		studyroomResolvers,
 	)
 });
