@@ -53,7 +53,7 @@ const mergedTypeDefs = mergeSchemas(
 		commentTypeDef,
 		resourceTypeDef,
 		documentTypeDef,
-		courseTypeDef
+		courseTypeDef,
 		forumTypeDef
 	],
 	[
@@ -62,7 +62,7 @@ const mergedTypeDefs = mergeSchemas(
 		documentQueries,
 		courseQueries,
 		courseUserQueries,
-		noteQueries
+		noteQueries,
 		forumQueries
 	],
 	[
@@ -71,7 +71,7 @@ const mergedTypeDefs = mergeSchemas(
 		resourceMutations,
 		courseMutations,
 		courseUserMutations,
-		noteMutations
+		noteMutations,
 		forumMutations
 	]
 );
@@ -84,7 +84,7 @@ export default makeExecutableSchema({
 		categoryResolvers,
 		resourceResolvers,
 		documentResolvers,
-		courseResolver
+		courseResolver,
 		forumResolvers
 	)
 });
