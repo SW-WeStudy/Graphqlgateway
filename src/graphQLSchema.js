@@ -86,7 +86,7 @@ const mergedTypeDefs = mergeSchemas(
 		forumTypeDef,
 		studyroomTypeDef,
 		usercreatedTypeDef,
-		adminTypeDef
+		adminTypeDef,
 		userTypeDef
 	],
 	[
@@ -99,7 +99,7 @@ const mergedTypeDefs = mergeSchemas(
 		forumQueries,
 		studyroomsQueries,
 		usercreatedQueries,
-		adminQueries
+		adminQueries,
 		userQueries
 	],
 	[
@@ -112,7 +112,7 @@ const mergedTypeDefs = mergeSchemas(
 		forumMutations,
 		studyroomsMutations,
 		usercreatedMutations,
-		adminMutations
+		adminMutations,
 		userMutations
 	]
 );
@@ -129,7 +129,7 @@ export default makeExecutableSchema({
 		forumResolvers,
 		usercreatedResolvers,
 		studyroomResolvers,
-		adminResolvers
+		adminResolvers,
 		authenticationResolvers
 	)
 });
