@@ -5,12 +5,16 @@ export const forumTypeDef = `
        _id: String
        name: String!
        userCreator: String!
+       userCreator_id: String!
+       course_id: String!
        posts: [String]
    }
 
     input forumInput{
         name: String!
         userCreator: String!
+        userCreator_id: String!
+        course_id: String!
    }
 
    type post {
@@ -18,6 +22,7 @@ export const forumTypeDef = `
        title: String
        content: String
        userCreator: String
+       userCreator_id: String
        forum_id: String
        likes: Int
        comments: [String]
@@ -27,6 +32,7 @@ export const forumTypeDef = `
         title: String!
         content: String!
         userCreator: String!
+        userCreator_id: String!
         forum_id: String!
    }
 
@@ -35,22 +41,26 @@ export const forumTypeDef = `
         content: String
         answer: [String]
         userCreator: String
+        userCreator_id: String
     }
 
     input postCommentInput{
         content: String
         userCreator: String
+        userCreator_id: String
    }
 
     type answer {
         _id: String
         content: String
         userCreator: String
+        userCreator_id: String
     }
 
     input answerInput{
         content: String
         userCreator: String
+        userCreator_id: String
    }
 
 `;
@@ -61,6 +71,7 @@ export const forumQueries = `
       getPostComments(_idForum: String!, _idPost: String!): [postComment]
       getCommentAnswers(_idForum: String!, _idPost: String!, _idComment: String!): [answer]
       getPostsByUser(username: String!): [post]
+      getForumsByCourse(course_id: String!): [forum]
   `;
 
 

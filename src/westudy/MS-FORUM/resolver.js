@@ -20,6 +20,9 @@ const resolvers = {
 		},
 		getPostsByUser: (_, { username }) => {	
 			return generalRequest(`${URL}/posts/${username}`, 'GET')
+		},
+		getForumsByCourse: (_, { course_id }) => {	
+			return generalRequest(`${URL}/forumsByCourse/${course_id}`, 'GET')
 		}
 	},
 	Mutation: {
