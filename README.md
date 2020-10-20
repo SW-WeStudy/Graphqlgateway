@@ -6,7 +6,9 @@
 - El Graphiql iniciara en http://localhost:5000/graphiql
 
 ## Notas a tener en cuenta
-- En los archivos donde definan sus esquemas, los nombres de cada type, input, queries y mutations tienen que ser unicos. En caso de que por ejemplo alguien cree un type Foro en algun esquema, y alguien lo cree en otro lugar, al iniciar el servidor ocurrira un error. 
+- En los archivos donde definan sus esquemas, los nombres de cada type, input, queries y mutations tienen que ser unicos.
+ En caso de que por ejemplo alguien cree un type Foro en algun esquema, y alguien lo cree en otro lugar, al iniciar el servidor,
+ ocurrira un error. 
 - Se pueden hacer directamente las peticiones desde Postman para hacer pruebas: 
 ![alt text](https://i.ibb.co/ZdnqZ0r/Capture.png)
 

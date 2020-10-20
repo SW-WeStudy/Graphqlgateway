@@ -56,7 +56,7 @@ import{
 	adminMutations,
 	adminQueries,
 	adminTypeDef
-} from './westudy/MS-ADMIN/schemas'	
+} from './westudy/MS-ADMIN/schemas'
 
 import{
 	userTypeDef,
