@@ -68,7 +68,7 @@ export const studyroomTypeDef = `
 `;
 
 export const studyroomsQueries = `
-    get_study_rooms: [Studyroom]
+    get_study_rooms(courseId: String!): [Studyroom]
     get_study_room(sr_id: String!): Studyroom
 
     get_resources(sr_id: String!): [ResourceSR]

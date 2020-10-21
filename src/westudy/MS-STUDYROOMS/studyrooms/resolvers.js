@@ -4,8 +4,8 @@ import { url, port, entryPoint } from "../server"
 const URL = `http://${url}:${port}/${entryPoint}`;
 const resolvers = {
 	Query: {
-		get_study_rooms: (_,) => {	
-			return generalRequest(`${URL}`, 'GET')
+		get_study_rooms: (_, {courseId}) => {	
+			return generalRequest(`${URL}`, 'GET',{courseId})
 		},
 		get_study_room: (_, {sr_id }) => {	
 			return generalRequest(`${URL}/${sr_id}`, 'GET')
