@@ -1,7 +1,7 @@
 import { generalRequest } from '../../utilities'
 import { url, port} from "./server"
 
-const URL = `https://${url}:${port}`;
+const URL = `http://${url}:${port}`;
 
 
 const resolvers = {
