@@ -10,7 +10,7 @@ const resolvers = {
 		},
 	},
 	Mutation: {
-		LDAPCreateUser: (_,{LDAPuser}) => {
+		LDAPCreateUser: (_,LDAPuser) => {
 			return generalRequest(`${URL}/auth/createuserldap`, 'POST', LDAPuser)
 		},
 	}
