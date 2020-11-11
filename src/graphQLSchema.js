@@ -64,6 +64,12 @@ import{
 	userMutations
 } from './westudy/MS-AUTH/schema'
 
+import{
+	LDAPuserTypeDef,
+	LDAPuserQueries,
+	LDAPuserMutations
+} from './westudy/MS-LDAP/schema'
+
 import categoryResolvers from './westudy/MS-RESOURCES/comments/resolvers';
 import resourceResolvers from './westudy/MS-RESOURCES/resources/resolver';
 import forumResolvers from './westudy/MS-FORUM/resolver';
@@ -74,6 +80,8 @@ import documentResolvers from './westudy/MS-NAVIGATION/documents/resolvers';
 import studyroomResolvers from './westudy/MS-STUDYROOMS/studyrooms/resolvers';
 import usercreatedResolvers from './westudy/MS-STUDYROOMS/usercreated/resolvers';
 import adminResolvers from './westudy/MS-ADMIN/resolver';
+
+import LDAPResolvers from './westudy/MS-LDAP/resolver';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -87,7 +95,8 @@ const mergedTypeDefs = mergeSchemas(
 		studyroomTypeDef,
 		usercreatedTypeDef,
 		adminTypeDef,
-		userTypeDef
+		userTypeDef,
+		LDAPuserTypeDef
 	],
 	[
 		commentQueries,
@@ -100,7 +109,8 @@ const mergedTypeDefs = mergeSchemas(
 		studyroomsQueries,
 		usercreatedQueries,
 		adminQueries,
-		userQueries
+		userQueries,
+		LDAPuserQueries
 	],
 	[
 		documentMutations,
@@ -113,7 +123,8 @@ const mergedTypeDefs = mergeSchemas(
 		studyroomsMutations,
 		usercreatedMutations,
 		adminMutations,
-		userMutations
+		userMutations,
+		LDAPuserMutations
 	]
 );
 
@@ -130,6 +141,7 @@ export default makeExecutableSchema({
 		usercreatedResolvers,
 		studyroomResolvers,
 		adminResolvers,
-		authenticationResolvers
+		authenticationResolvers,
+		LDAPResolvers
 	)
 });
