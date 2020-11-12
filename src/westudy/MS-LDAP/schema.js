@@ -14,7 +14,7 @@ export const LDAPuserTypeDef = `
   }
 
   type authConfirmation {
-    status: String
+    status: Boolean
   }
 `;
 
