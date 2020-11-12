@@ -3,11 +3,12 @@ import KoaRouter from 'koa-router';
 import koaLogger from 'koa-logger';
 import koaBody from 'koa-bodyparser';
 import koaCors from '@koa/cors';
-
+const bodyParser = require('koa-bodyparser');
 import { graphiqlKoa, graphqlKoa } from 'apollo-server-koa';
 import graphQLSchema from './graphQLSchema';
 
 import { formatErr } from './utilities';
+import { head } from 'request-promise-native';
 
 
 const fetch = require('node-fetch');
@@ -16,11 +17,12 @@ const app = new Koa();
 const PORT = process.env.PORT || 5000;
 const router = new KoaRouter();
 
-
+app.use(bodyParser());
 app.use(koaCors());
 
 // read token from header
 app.use(async (ctx, next) => {
+	let que = JSON.stringify(ctx.request.body)
 	if (ctx.header.authorization) {
 		const idToken = ctx.header.authorization.replace("Bearer ","");
 		console.log(JSON.stringify({idToken}))
@@ -35,8 +37,11 @@ app.use(async (ctx, next) => {
 				status:"token error"
 			}
 		}
+	}else{
+		if(que.includes("LDAP")){
+			await next();
+		}
 	}
-	
 });
 
 // GraphQL
