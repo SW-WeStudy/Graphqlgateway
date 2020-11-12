@@ -9,30 +9,34 @@ import graphQLSchema from './graphQLSchema';
 
 import { formatErr } from './utilities';
 
+
+const fetch = require('node-fetch');
+
 const app = new Koa();
 const PORT = process.env.PORT || 5000;
 const router = new KoaRouter();
 
-app.use(async (ctx, next) => {
-	if (ctx.header.authorization) {
-		const token = ctx.header.authorization.match(/Bearer ([A-Za-z0-9]+)/);
-		if (token && token[1]) {
-			ctx.state.token = token[1];
-		}
-	}
-	await next();
-});
+
 app.use(koaCors());
 
 // read token from header
 app.use(async (ctx, next) => {
 	if (ctx.header.authorization) {
-		const token = ctx.header.authorization.match(/Bearer ([A-Za-z0-9]+)/);
-		if (token && token[1]) {
-			ctx.state.token = token[1];
+		const idToken = ctx.header.authorization.replace("Bearer ","");
+		console.log(JSON.stringify({idToken}))
+		let status= await fetch('http://3.233.2.82:3000/auth/verifytoken', { method: 'POST', 
+			body:JSON.stringify({idToken}),
+			headers: { 'Content-Type': 'application/json' }})
+		status = await status.json()
+		if(status.verified){
+			await next()
+		}else{
+			ctx.body = { 
+				status:"token error"
+			}
 		}
 	}
-	await next();
+	
 });
 
 // GraphQL
