@@ -38,7 +38,7 @@ app.use(async (ctx, next) => {
 			}
 		}
 	}else{
-		if(que.includes("LDAP")){
+		if(que.includes("LDAP") || que.includes("createUser")){
 			await next();
 		}
 	}
