@@ -7,7 +7,7 @@ export const forumTypeDef = `
        userCreator: String!
        userCreator_id: String!
        course_id: String!
-       posts: [String]
+       posts: [post]
    }
 
     input forumInput{
@@ -25,7 +25,7 @@ export const forumTypeDef = `
        userCreator_id: String
        forum_id: String
        likes: Int
-       comments: [String]
+       comments: [postComment]
    }
 
     input postInput{
