@@ -70,6 +70,11 @@ import{
 	LDAPuserMutations
 } from './westudy/MS-LDAP/schema'
 
+import{
+	soapQueries,
+	soapTypeDef
+} from './westudy/MS-SOAP/typeDefs'
+
 import categoryResolvers from './westudy/MS-RESOURCES/comments/resolvers';
 import resourceResolvers from './westudy/MS-RESOURCES/resources/resolver';
 import forumResolvers from './westudy/MS-FORUM/resolver';
@@ -82,6 +87,7 @@ import usercreatedResolvers from './westudy/MS-STUDYROOMS/usercreated/resolvers'
 import adminResolvers from './westudy/MS-ADMIN/resolver';
 
 import LDAPResolvers from './westudy/MS-LDAP/resolver';
+import soapResolvers from './westudy/MS-SOAP/resolver';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -96,7 +102,8 @@ const mergedTypeDefs = mergeSchemas(
 		usercreatedTypeDef,
 		adminTypeDef,
 		userTypeDef,
-		LDAPuserTypeDef
+		LDAPuserTypeDef,
+		soapTypeDef
 	],
 	[
 		commentQueries,
@@ -110,7 +117,8 @@ const mergedTypeDefs = mergeSchemas(
 		usercreatedQueries,
 		adminQueries,
 		userQueries,
-		LDAPuserQueries
+		LDAPuserQueries,
+		soapQueries
 	],
 	[
 		documentMutations,
@@ -142,6 +150,7 @@ export default makeExecutableSchema({
 		studyroomResolvers,
 		adminResolvers,
 		authenticationResolvers,
-		LDAPResolvers
+		LDAPResolvers,
+		soapResolvers
 	)
 });
