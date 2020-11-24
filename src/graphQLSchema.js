@@ -71,6 +71,11 @@ import{
 } from './westudy/MS-LDAP/schema'
 
 import{
+	notificationTypeDef,
+	noificationMutations
+} from './westudy/MS-NOTIFICATIONS/schema'
+
+import{
 	soapQueries,
 	soapTypeDef
 } from './westudy/MS-SOAP/typeDefs'
@@ -85,6 +90,7 @@ import documentResolvers from './westudy/MS-NAVIGATION/documents/resolvers';
 import studyroomResolvers from './westudy/MS-STUDYROOMS/studyrooms/resolvers';
 import usercreatedResolvers from './westudy/MS-STUDYROOMS/usercreated/resolvers';
 import adminResolvers from './westudy/MS-ADMIN/resolver';
+import notificationResolvers from './westudy/MS-NOTIFICATIONS/resolver';
 
 import LDAPResolvers from './westudy/MS-LDAP/resolver';
 import soapResolvers from './westudy/MS-SOAP/resolver';
@@ -102,6 +108,7 @@ const mergedTypeDefs = mergeSchemas(
 		usercreatedTypeDef,
 		adminTypeDef,
 		userTypeDef,
+		notificationTypeDef,
 		LDAPuserTypeDef,
 		soapTypeDef
 	],
@@ -132,7 +139,8 @@ const mergedTypeDefs = mergeSchemas(
 		usercreatedMutations,
 		adminMutations,
 		userMutations,
-		LDAPuserMutations
+		LDAPuserMutations,
+		noificationMutations
 	]
 );
 
@@ -151,6 +159,7 @@ export default makeExecutableSchema({
 		adminResolvers,
 		authenticationResolvers,
 		LDAPResolvers,
+		notificationResolvers,
 		soapResolvers
 	)
 });
