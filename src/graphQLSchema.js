@@ -108,7 +108,7 @@ const mergedTypeDefs = mergeSchemas(
 		usercreatedTypeDef,
 		adminTypeDef,
 		userTypeDef,
-		notificationTypeDef
+		notificationTypeDef,
 		LDAPuserTypeDef,
 		soapTypeDef
 	],
@@ -159,7 +159,7 @@ export default makeExecutableSchema({
 		adminResolvers,
 		authenticationResolvers,
 		LDAPResolvers,
-		notificationResolvers
+		notificationResolvers,
 		soapResolvers
 	)
 });
