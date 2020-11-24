@@ -13,8 +13,15 @@ export const notificationTypeDef = `
        usuario: String!
    }
 
-   type subscriptionConfirmation {
-    status: String
+   input suscription {
+    endpoint:String!
+    expirationTime:String!
+    keys: keys!
+    }
+
+    input keys {
+      auth:String!
+      p256dh:String!
     }
 
 `;
@@ -23,5 +30,5 @@ export const notificationTypeDef = `
 
 export const noificationMutations = `
   pushNotification(notification: notificationInput!): notification
-  subscribeUser(subscription: String!): String
+  subscribeUser(subscription: suscription!): String
 `;  

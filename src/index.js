@@ -22,26 +22,27 @@ app.use(koaCors());
 
 // read token from header
 app.use(async (ctx, next) => {
-	let que = JSON.stringify(ctx.request.body)
-	if (ctx.header.authorization) {
-		const idToken = ctx.header.authorization.replace("Bearer ","");
-		console.log(JSON.stringify({idToken}))
-		let status= await fetch('http://3.233.2.82:3000/auth/verifytoken', { method: 'POST', 
-			body:JSON.stringify({idToken}),
-			headers: { 'Content-Type': 'application/json' }})
-		status = await status.json()
-		if(status.verified){
-			await next()
-		}else{
-			ctx.body = { 
-				status:"token error"
-			}
-		}
-	}else{
-		if(que.includes("LDAP") || que.includes("createUser")){
-			await next();
-		}
-	}
+	// let que = JSON.stringify(ctx.request.body)
+	// if (ctx.header.authorization) {
+	// 	const idToken = ctx.header.authorization.replace("Bearer ","");
+	// 	console.log(JSON.stringify({idToken}))
+	// 	let status= await fetch('http://3.233.2.82:3000/auth/verifytoken', { method: 'POST', 
+	// 		body:JSON.stringify({idToken}),
+	// 		headers: { 'Content-Type': 'application/json' }})
+	// 	status = await status.json()
+	// 	if(status.verified){
+	// 		await next()
+	// 	}else{
+	// 		ctx.body = { 
+	// 			status:"token error"
+	// 		}
+	// 	}
+	// }else{
+	// 	if(que.includes("LDAP") || que.includes("createUser")){
+	// 		await next();
+	// 	}
+	// }
+	await next()
 });
 
 // GraphQL

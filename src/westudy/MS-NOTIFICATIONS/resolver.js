@@ -11,7 +11,8 @@ const resolvers = {
 			return generalRequest(`${URL}/push`, 'POST', notification)
 		},
 		subscribeUser: (_, { subscription }) =>{
-			return generalRequest(`${URL}/subscribe`, 'POST', subscription)
+			console.log(subscription)
+			return generalRequest(`${URL}/subscribe`, 'POST', {subscription})
 		},
     }
     
