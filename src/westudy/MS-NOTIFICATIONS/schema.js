@@ -23,5 +23,5 @@ export const notificationTypeDef = `
 
 export const noificationMutations = `
   pushNotification(notification: notificationInput!): notification
-  subscribeUser(subscription: String!): subscriptionConfirmation
+  subscribeUser(subscription: String!): String
 `;  
