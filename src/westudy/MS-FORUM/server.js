@@ -1,2 +1,2 @@
-export const url = '52.200.134.90'
+export const url = '54.237.57.235'
 export const port = '3000'
