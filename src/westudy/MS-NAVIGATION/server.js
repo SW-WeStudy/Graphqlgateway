@@ -1,3 +1,3 @@
-export const url = '75.101.185.140'
+export const url = 'navigation.default.svc.cluster.local'
 export const port = '80'
 export const entryPoint = ''

@@ -1,2 +1,2 @@
-export const url = '3.140.66.179'
+export const url = 'notifications.default.svc.cluster.local'
 export const port = '3005/api'

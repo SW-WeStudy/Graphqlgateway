@@ -1,2 +1,2 @@
-export const url = '3.88.173.67'
+export const url = 'adminusers.default.svc.cluster.local'
 export const port = '5000'
