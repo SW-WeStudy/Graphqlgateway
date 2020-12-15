@@ -1,2 +1,2 @@
-export const url = 'forums.default.svc.cluster.local'
+export const url = '54.237.57.235'
 export const port = '3000'
